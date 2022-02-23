@@ -57,8 +57,8 @@
 
 .main {
   width: 350px;
-  margin: -2.5rem auto;
-  transform: scale(0.8);
+  margin: -5rem auto;
+  transform: scale(0.9);
   z-index: 99;
 }
 .subtitle {
@@ -70,8 +70,8 @@
 }
 .calculator__title-container {
   width: 352px;
-  transform: scale(0.8);
-  margin-bottom: -16rem;
+  transform: scale(0.6);
+  margin-bottom: -15.5rem;
 }
 .calculator__title-image {
   width: 100%;
