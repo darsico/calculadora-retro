@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "Crash Scene";
+  src: url("../fonts/CrashScene-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Diamond Signature";
+  src: url("../fonts/DiamondSignature-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --main-black: #171717;
+  --main-white: #e6e6e6;
+  --main-yellow: #e6d31f;
+
+  --screen-bg: #a7dc32;
+  --screen-box-shadow:box-shadow: inset 10px -9px 4px -1px rgba(0, 0, 0, 0.25);
+  
+  --screen-content-color: #344c16;
+  --screen-border-radius:10px;
+  --screen-wrapper-bg: radial-gradient(50% 50% at 50% 50%, #939A9F 0%, #BBBBBB 100%, #BBBBBB 100%);
+  
+  --btn-border: 3px solid #3C4045;
+
+  --btn-clear-bg: #de3495;
+  --btn-clear-box-shadow: inset -1px -9px 5px 3px rgba(255, 123, 198, 0.64);
+
+  --btn-percentage-bg: #23c2bb;
+  --btn-percentage-box-shadow:inset -1px -9px 4px 2px rgba(64, 239, 232, 0.5);
+
+  --btn-number-bg: #919296;
+  --btn-number-box-shadow: box-shadow: inset 0px -8px 5px 3px rgba(255, 255, 255, 0.27);
+
+  --btn-operator-bg: #5c666a;
+  --btn-operator-box-shadow: box-shadow: inset -1px -9px 4px rgba(219, 219, 219, 0.25);
+border-radius: 8px;
+  --btn-font-family: "Diamond Signature";
+  --title-font-family: "Crash Scene";
+
+  --calculator-inner-wrapper-bg: #c6c7c5;
+  --calculator-inner-wrapper-bg: inset -4px 1px 9px 15px rgba(103, 103, 103, 0.25);
+  --calculator-inner-wrapper-border-radius: 24px;
+  
+  --calculator-wrapper-bg: #2f2f2e;
+  --calculator-wrapper-box-shadow: 12px 27px 17px 14px rgba(0, 0, 0, 0.18), inset -9px -9px 7px -1px rgba(241, 239, 239, 0.15);
+  --calculator-wrapper-border-radius: 24px;
+
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
