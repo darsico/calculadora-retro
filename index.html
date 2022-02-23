@@ -4,6 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+
+@font-face {
+  font-family: "Crash Scene";
+  src: url("../fonts/CrashScene-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Digital 7";
+  src: url("../fonts/digital-7.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+    </style>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Calculadora Retro</title>
@@ -60,98 +79,100 @@
                 <h3 class="calculator__screen-content">80085</h3>
               </div>
             </div>
-            <p class="calculator__body-text">on</p>
-            <div class="calculator__body">
-              <button
-                class="calculator__body-button calculator__body-butto-clear"
-              >
-                C
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-percentage"
-              >
-                ÷
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-operator"
-              >
-                ÷
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-operator"
-              >
-                x
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                7
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                8
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                9
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-operator"
-              >
-                -
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                4
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                5
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                6
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-operator"
-              >
-                +
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                1
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                2
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                3
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-operator"
-              >
-                =
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-number"
-              >
-                0
-              </button>
-              <button
-                class="calculator__body-button calculator__body-button-operator"
-              >
-                .
-              </button>
+            <div>
+              <p class="calculator__body-text">on</p>
+              <div class="calculator__body">
+                <div
+                  class="calculator__body-button calculator__body-button-clear"
+                >
+                  C
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-delete"
+                >
+                  &larr;
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-operator"
+                >
+                  ÷
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-operator"
+                >
+                  x
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number"
+                >
+                  7
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number"
+                >
+                  8
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number"
+                >
+                  9
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-operator"
+                >
+                  -
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number"
+                >
+                  4
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number"
+                >
+                  5
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number"
+                >
+                  6
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-operator"
+                >
+                  +
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number"
+                >
+                  1
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number"
+                >
+                  2
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number"
+                >
+                  3
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-operator calculator__body-button-operator--equal"
+                >
+                  =
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-number calculator__body-button-number--cero"
+                >
+                  0
+                </div>
+                <div
+                  class="calculator__body-button calculator__body-button-operator"
+                >
+                  .
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -166,7 +187,7 @@
             alt=""
           />
         </figure>
-        <h3 class="signature__title">Made by Diego Huaman</h3>
+        <h3 class="signature__title">Hecho por Diego Huaman</h3>
         <figure class="signature__decoration">
           <img
             class="signature__decoration-image"
@@ -175,27 +196,33 @@
           />
         </figure>
         <div class="signature__icon-list">
-          <figure class="signature__icon-container">
-            <img
-              class="signature__icon-image"
-              src="./images/github.svg"
-              alt=""
-            />
+          <a href="">
+            <figure class="signature__icon-container">
+              <img
+                class="signature__icon-image"
+                src="./images/github.svg"
+                alt=""
+              />
+          </a>
           </figure>
-          <figure class="signature__icon-container">
-            <img
-              class="signature__icon-image"
-              src="./images/linkedin.svg"
-              alt=""
-            />
-          </figure>
-          <figure class="signature__icon-container">
-            <img
-              class="signature__icon-image"
-              src="./images/instagram.svg"
-              alt=""
-            />
-          </figure>
+          <a href="">
+            <figure class="signature__icon-container">
+              <img
+                class="signature__icon-image"
+                src="./images/linkedin.svg"
+                alt=""
+              />
+            </figure>
+          </a>
+          <a href="">
+            <figure class="signature__icon-container">
+              <img
+                class="signature__icon-image"
+                src="./images/instagram.svg"
+                alt=""
+              />
+            </figure>
+          </a>
         </div>
       </section>
     </footer>
