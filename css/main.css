@@ -1,0 +1,249 @@
+:root {
+  --main-black: #171717;
+  --main-white: #e6e6e6;
+  --main-yellow: #e6d31f;
+
+  --screen-bg: #a7dc32;
+  --screen-box-shadow: inset 5px -5px 5px -1px rgba(0, 0, 0, 0.25);
+
+  --screen-content-color: #344c16;
+  --screen-border-radius: 10px;
+  --screen-wrapper-bg: radial-gradient(
+    50% 50% at 50% 50%,
+    #939a9f 0%,
+    #bbbbbb 100%,
+    #bbbbbb 100%
+  );
+
+  --btn-border: 3px solid #3c4045;
+
+  --btn-clear-bg: #de3495;
+  --btn-clear-box-shadow: inset -1px -2px 5px 3px rgba(255, 123, 198, 0.5);
+
+  --btn-delete-bg: #23c2bb;
+  --btn-delete-box-shadow: inset -1px -9px 4px 2px rgba(64, 239, 232, 0.5);
+
+  --btn-number-bg: #919296;
+  --btn-number-box-shadow: inset 0px -8px 5px 3px rgba(255, 255, 255, 0.27);
+
+  --btn-operator-bg: #5c666a;
+  --btn-operator-box-shadow: inset -1px -9px 4px rgba(219, 219, 219, 0.25);
+  --btnborder-radius: 8px;
+  --btn-font-family: "Patrick Hand", cursive;
+  --title-font-family: "Crash Scene";
+  --screen-content-font-family: "Digital 7";
+
+  --calculator-inner-wrapper-bg: #c6c7c5;
+  --calculator-inner-wrapper-box-shadow: inset -4px 1px 9px 15px rgba(103, 103, 103, 0.25);
+  --calculator-inner-wrapper-border-radius: 24px;
+
+  --calculator-wrapper-bg: #2f2f2e;
+  --calculator-wrapper-box-shadow: 12px 27px 17px 14px rgba(0, 0, 0, 0.18),
+    inset -9px -9px 7px -1px rgba(241, 239, 239, 0.15);
+  --calculator-wrapper-border-radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+.body {
+  background-image: url("../images/background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+
+.main {
+  width: 350px;
+  margin: -2.5rem auto;
+  transform: scale(0.75);
+  z-index: 99;
+}
+.subtitle {
+  display: none;
+}
+
+.calculator {
+  width: 100%;
+}
+.calculator__title-container {
+  width: 352px;
+  transform: scale(0.8);
+  margin-bottom: -16rem;
+}
+.calculator__title-image {
+  width: 100%;
+}
+
+.calculator__wrapper {
+  margin: 0 auto;
+  position: relative;
+  height: 416px;
+  width: 272px;
+  border: 4px solid #24211e;
+  box-shadow: var(--calculator-wrapper-box-shadow);
+  background: var(--calculator-wrapper-bg);
+  border-radius: var(--calculator-wrapper-border-radius);
+}
+
+.calculator__inner-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 395px;
+  background: var(--calculator-inner-wrapper-bg);
+  /* TODO eliminar border o chequear border inner */
+  /* border: 2px solid #2F2F2E; */
+  box-shadow: var(--calculator-inner-wrapper-box-shadow);
+  border-radius: var(--calculator-inner-wrapper-border-radius);
+  padding: 1.8rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calculator__header {
+  display: flex;
+  align-items: center;
+}
+
+.calculator__header-logo {
+  width: 60px;
+}
+
+.calculator__header-solar-panel {
+  width: 70px;
+  margin-left: auto;
+}
+
+.calculator__header-logo-image,
+.calculator__header-solar-panel-image {
+  width: 100%;
+}
+
+.calculator__screen-wrapper {
+  width: 100%;
+  height: 78px;
+  background: var(--screen-wrapper-bg);
+  border: 3px solid #3c4045;
+  border-radius: var(--screen-border-radius);
+  padding: 0.4rem 0.6rem;
+}
+.calculator__screen {
+  width: 100%;
+  height: 100%;
+  background: var(--screen-bg);
+  box-shadow: var(--screen-box-shadow);
+  color: var(--screen-content-color);
+  border: 3px solid #3c4045;
+  border-radius: var(--screen-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0.9rem 0.3rem;
+}
+.calculator__screen-content {
+  font-family: var(--screen-content-font-family);
+  font-size: 2.4em;
+}
+
+.calculator__body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 0.5rem;
+}
+
+.calculator__body-text {
+  font-family: var(--btn-font-family);
+}
+.calculator__body-button {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2em;
+  font-family: var(--btn-font-family);
+  border: 3px solid #3c4045;
+  color: #2d2d2d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calculator__body-button-clear {
+  background: var(--btn-clear-bg);
+  box-shadow: var(--btn-clear-box-shadow);
+}
+
+.calculator__body-button-delete {
+  background: var(--btn-delete-bg);
+  box-shadow: var(--btn-delete-box-shadow);
+  font-size: 1.5em;
+}
+.calculator__body-button-operator {
+  background: var(--btn-operator-bg);
+  box-shadow: var(--btn-operator-box-shadow);
+}
+.calculator__body-button-number {
+  background: var(--btn-number-bg);
+  box-shadow: var(--btn-number-box-shadow);
+}
+
+.calculator__body-button-operator--equal {
+  grid-column: 4 / 5;
+  grid-row: 4 / 6;
+}
+.calculator__body-button-number--cero {
+  grid-column: 1/3;
+}
+
+.footer {
+  width: 100%;
+  background: #e6d31f;
+  padding: 1.5rem 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+.signature {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: min(90%, 330px);
+  gap: 0.5rem;
+}
+.signature__decoration {
+  width: 25px;
+}
+.signature__decoration-image {
+  width: 100%;
+}
+.signature__title {
+  text-align: center;
+  justify-self: center;
+  text-transform: uppercase;
+  font-family: var(--title-font-family);
+  font-size: 1.5em;
+  color: #2d2d2d;
+}
+
+.signature__icon-list {
+  grid-column: span 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.signature__icon-container {
+  width: 20px;
+}
+
+.signature__icon-image {
+  width: 100%;
+}
