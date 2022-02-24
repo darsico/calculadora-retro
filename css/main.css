@@ -48,18 +48,35 @@
 }
 .body {
   background-image: url("../images/background.svg");
+  display: flex;
+  flex-direction: column;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 100vh;
-  overflow-y: auto;
+  height: 100vh;
+  overflow-y: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 0;
 }
 
 .main {
-  width: 350px;
-  margin: -5rem auto;
-  transform: scale(0.9);
-  z-index: 99;
+  /* width: 350px; */
+  /* margin: -5rem auto; */
+  /* transform: scale(0.9); */
+  /* z-index: 99; */
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100%;
+  width: 100%;
 }
 .subtitle {
   display: none;
@@ -67,11 +84,12 @@
 
 .calculator {
   width: 100%;
+  transform: scale(0.85);
 }
 .calculator__title-container {
-  width: 352px;
-  transform: scale(0.6);
-  margin-bottom: -15.5rem;
+  width: 200px;
+  /* transform: scale(0.6); */
+  /* margin-bottom: -15.5rem; */
 }
 .calculator__title-image {
   width: 100%;
@@ -148,13 +166,14 @@
 .calculator__screen-content {
   font-family: var(--screen-content-font-family);
   font-size: 2.4em;
+  margin-left: auto;
 }
 
 .calculator__body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  grid-gap: 0.5rem;
+  grid-gap: 0.35rem;
 }
 
 .calculator__body-text {
@@ -202,21 +221,26 @@
 .footer {
   width: 100%;
   background: #e6d31f;
-  padding: 0.9rem 0;
+  padding: 0.8rem 0;
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: -1;
 }
 .signature {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   margin: 0 auto;
   width: min(90%, 330px);
   gap: 0.3rem;
+}
+.signature__first-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 .signature__decoration {
   width: 25px;
@@ -225,8 +249,10 @@
   width: 100%;
 }
 .signature__title {
-  text-align: center;
-  justify-self: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  align-self: center;
   text-transform: uppercase;
   font-family: var(--title-font-family);
   font-size: 1.2em;
@@ -242,6 +268,8 @@
 }
 .signature__icon-container {
   width: 25px;
+  display: flex;
+  align-items: center;
 }
 
 .signature__icon-image {
