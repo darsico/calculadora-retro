@@ -164,6 +164,7 @@
   display: flex;
   align-items: center;
   justify-content: end;
+  overflow: hidden;
   padding: 0.9rem 0.3rem;
 }
 .calculator__screen-content {
