@@ -52,8 +52,8 @@
   flex-direction: column;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   height: 100vh;
+  width: 100vw;
   overflow-y: hidden;
   align-items: center;
   justify-content: center;
@@ -68,10 +68,6 @@
 }
 
 .main {
-  /* width: 350px; */
-  /* margin: -5rem auto; */
-  /* transform: scale(0.9); */
-  /* z-index: 99; */
   display: flex;
   justify-content: center;
   align-items: start;
@@ -88,8 +84,6 @@
 }
 .calculator__title-container {
   width: 200px;
-  /* transform: scale(0.6); */
-  /* margin-bottom: -15.5rem; */
 }
 .calculator__title-image {
   width: 100%;
