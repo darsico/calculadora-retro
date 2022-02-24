@@ -1,40 +1,53 @@
 "use strict";
 const documentReady = () => {
-  const displayScreenContent = document.getElementById("screen-content");
+  const valueElement = document.getElementById("screen-value");
 
-  // const formatNumber = (numberToFormat) => {
-  //   let number = parseInt(numberToFormat, 10);
-  //   let formattedNumber = number.toLocaleString();
-  //   return formattedNumber;
-  // };
+  const getValueAsStr = () => valueElement.textContent.split(",").join("");
+
+  const getValueAsNum = () => {
+    return parseFloat(getValueAsStr());
+  };
+
+  const setStrAsValue = (valueStr) => {
+    if (valueStr[valueStr.length - 1] === ".") {
+      valueElement.textContent += ".";
+      return;
+    }
+    const [wholeNumberStr, decimalStr] = valueStr.split(".");
+    if (decimalStr) {
+      valueElement.textContent = parseFloat(wholeNumberStr).toLocaleString("en") + "." + decimalStr;
+    } else {
+      valueElement.textContent = parseFloat(wholeNumberStr).toLocaleString("en");
+    }
+  };
 
   // const printContent = (content) => {
   //   content === ""
-  //     ? (displayScreenContent.innerText = content)
-  //     : (displayScreenContent.innerText += formatNumber(content));
+  //     ? (valueElement.innerText = content)
+  //     : (valueElement.innerText += formatNumber(content));
   // };
   // const reverseFormattedNumber = (formattedNumber) => {
   //   return Number(formattedNumber.replace(/,/g, ""));
   // };
 
   // OPERATOR BUTTONS
-  const operators = [
-    ...document.querySelectorAll(".calculator__body-button-operator"),
-  ];
+  const operators = [...document.querySelectorAll(".calculator__body-button-operator")];
   operators.map((element) => {
     element.addEventListener("click", (e) => {
       console.log(`clicked:  ${e.target.id}`);
     });
   });
 
-  // NUMBER BUTTONS
-  const numbers = [
-    ...document.querySelectorAll(".calculator__body-button-number"),
-  ];
-  // TODO: implement formatted numbers
+  // NUMBERS
+  const numbers = [...document.querySelectorAll(".calculator__body-button-number")];
+
   const handleNumberClick = (numberStr) => {
-    const currentNumberStr = displayScreenContent.textContent;
-    displayScreenContent.textContent = currentNumberStr + numberStr;
+    const currentValueStr = getValueAsStr();
+    if (currentValueStr === "0") {
+      valueElement.textContent = numberStr;
+    } else {
+      setStrAsValue(currentValueStr + numberStr);
+    }
   };
 
   numbers.map((element) => {
@@ -43,10 +56,19 @@ const documentReady = () => {
     });
   });
 
+  //DECIMAL
+  const decimal = document.getElementById("decimal");
+  decimal.addEventListener("click", () => {
+    const currentValueStr = getValueAsStr();
+    if (!currentValueStr.includes(".")) {
+      setStrAsValue(currentValueStr + ".");
+    }
+  });
+
   // CLEAR
   const clear = document.getElementById("clear");
   clear.addEventListener("click", () => {
-    displayScreenContent.textContent = "";
+    valueElement.textContent = "0";
   });
 
   // BACK
