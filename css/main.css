@@ -18,17 +18,26 @@
   --btn-border: 3px solid #3c4045;
 
   --btn-clear-bg: #de3495;
+  --btn-clear-bg--hover: #be2a7e;
+  --btn-clear-bg--active: #a7276f;
   --btn-clear-box-shadow: inset -1px -2px 5px 3px rgba(255, 123, 198, 0.5);
 
   --btn-delete-bg: #23c2bb;
+  --btn-delete-bg--hover: #21b6ae;
+  --btn-delete-bg--active: #27a09a;
   --btn-delete-box-shadow: inset -1px -9px 4px 2px rgba(64, 239, 232, 0.5);
 
   --btn-number-bg: #919296;
+  --btn-number-bg--hover: #78797c;
+  --btn-number-bg--active: #6c6d70;
   --btn-number-box-shadow: inset 0px -8px 5px 3px rgba(255, 255, 255, 0.27);
 
   --btn-operator-bg: #5c666a;
+  --btn-operator-bg--hover: #4c5558;
+  --btn-operator-bg--active: #3e4547;
   --btn-operator-box-shadow: inset -1px -9px 4px rgba(219, 219, 219, 0.25);
-  --btnborder-radius: 8px;
+
+  --btn-border-radius: 8px;
   --btn-font-family: "Patrick Hand", cursive;
   --title-font-family: "Crash Scene";
   --screen-content-font-family: "Digital 7";
@@ -172,6 +181,7 @@
 
 .calculator__body-text {
   font-family: var(--btn-font-family);
+  margin-left: 1rem;
 }
 .calculator__body-button {
   width: 100%;
@@ -184,10 +194,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s;
 }
 .calculator__body-button-clear {
   background: var(--btn-clear-bg);
   box-shadow: var(--btn-clear-box-shadow);
+}
+.calculator__body-button-clear:hover {
+  background: var(--btn-clear-bg--hover);
+}
+.calculator__body-button-clear:active {
+  background: var(--btn-clear-bg--active);
 }
 
 .calculator__body-button-delete {
@@ -195,15 +212,32 @@
   box-shadow: var(--btn-delete-box-shadow);
   font-size: 1.5em;
 }
+.calculator__body-button-delete:hover {
+  background: var(--btn-delete-bg--hover);
+}
+.calculator__body-button-delete:active {
+  background: var(--btn-delete-bg--active);
+}
 .calculator__body-button-operator {
   background: var(--btn-operator-bg);
   box-shadow: var(--btn-operator-box-shadow);
+}
+.calculator__body-button-operator:hover {
+  background: var(--btn-operator-bg--hover);
+}
+.calculator__body-button-operator:active {
+  background: var(--btn-operator-bg--active);
 }
 .calculator__body-button-number {
   background: var(--btn-number-bg);
   box-shadow: var(--btn-number-box-shadow);
 }
-
+.calculator__body-button-number:hover {
+  background: var(--btn-number-bg--hover);
+}
+.calculator__body-button-number:active {
+  background: var(--btn-number-bg--active);
+}
 .calculator__body-button-operator--equal {
   grid-column: 4 / 5;
   grid-row: 4 / 6;
