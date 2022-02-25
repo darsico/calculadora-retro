@@ -44,6 +44,7 @@ const documentReady = () => {
   };
 
   const handleOperatorClick = (operator) => {
+    operatorSound.play();
     const currentValueStr = getValueAsStr();
 
     if (!valueStrInMemory) {
@@ -57,6 +58,8 @@ const documentReady = () => {
     operatorInMemory = operator;
     setStrAsValue("0");
   };
+  const operatorSound = new Audio();
+  operatorSound.src = "../sounds/operator-sound.wav";
 
   const sum = document.getElementById("sum");
   const subtraction = document.getElementById("subtraction");
@@ -64,15 +67,13 @@ const documentReady = () => {
   const division = document.getElementById("division");
 
   sum.addEventListener("click", () => handleOperatorClick("sum"));
-
   subtraction.addEventListener("click", () => handleOperatorClick("subtraction"));
-
   multiplication.addEventListener("click", () => handleOperatorClick("multiplication"));
-
   division.addEventListener("click", () => handleOperatorClick("division"));
 
   //EQUAL
   const handleEqualClick = () => {
+    operatorSound.play();
     if (valueStrInMemory) {
       const newValueStr = getResultOfOperationAsStr();
       if (parseFloat(newValueStr) > Math.floor(newValueStr)) {
@@ -94,6 +95,7 @@ const documentReady = () => {
   });
 
   // NUMBERS
+
   const handleNumberClick = (numberStr) => {
     const currentValueStr = getValueAsStr();
     if (currentValueStr === "0") {
@@ -103,10 +105,13 @@ const documentReady = () => {
     }
   };
 
+  const numberSound = new Audio();
+  numberSound.src = "../sounds/number-sound.wav";
   const numbers = [...document.querySelectorAll(".calculator__body-button-number")];
 
   numbers.map((element) => {
     element.addEventListener("click", (e) => {
+      numberSound.play();
       handleNumberClick(e.target.id.toString());
     });
   });
@@ -115,6 +120,7 @@ const documentReady = () => {
   const decimal = document.getElementById("decimal");
 
   decimal.addEventListener("click", () => {
+    operatorSound.play();
     const currentValueStr = getValueAsStr();
     if (!currentValueStr.includes(".")) {
       setStrAsValue(currentValueStr + ".");
@@ -128,8 +134,14 @@ const documentReady = () => {
     operatorInMemory = null;
   };
 
+  const cSound = new Audio();
+  cSound.src = "../sounds/c-sound.wav";
+
   const clear = document.getElementById("clear");
-  clear.addEventListener("click", handleClearClick);
+  clear.addEventListener("click", () => {
+    cSound.play();
+    handleClearClick();
+  });
 
   // BACK
   const handleBackClick = () => {
@@ -142,8 +154,13 @@ const documentReady = () => {
     }
   };
 
+  const backSound = new Audio();
+  backSound.src = "../sounds/back-sound.wav";
   const back = document.getElementById("back");
-  back.addEventListener("click", handleBackClick);
+  back.addEventListener("click", () => {
+    backSound.play();
+    handleBackClick();
+  });
 };
 
 document.addEventListener("DOMContentLoaded", documentReady);
