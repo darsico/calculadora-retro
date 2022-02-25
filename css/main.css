@@ -214,20 +214,19 @@
 .calculator__body-button-delete:active {
   background: var(--btn-delete-bg--active);
 }
-.calculator__body-button-operator {
+.calculator__body-button-operator,
+.calculator__body-button-operator--decimal {
   background: var(--btn-operator-bg);
   box-shadow: var(--btn-operator-box-shadow);
 }
-.calculator__body-button-operator:hover {
+.calculator__body-button-operator:hover,
+.calculator__body-button-operator--decimal:hover {
   background: var(--btn-operator-bg--hover);
 }
 .calculator__body-button-operator:active {
   background: var(--btn-operator-bg--active);
 }
-.calculator__body-button-operator--decimal {
-  background: var(--btn-operator-bg);
-  box-shadow: var(--btn-operator-box-shadow);
-}
+
 .calculator__body-button-number {
   background: var(--btn-number-bg);
   box-shadow: var(--btn-number-box-shadow);
@@ -242,7 +241,7 @@
   grid-column: 4 / 5;
   grid-row: 4 / 6;
 }
-.calculator__body-button-number--cero {
+.calculator__body-button-number--zero {
   grid-column: 1/3;
 }
 
