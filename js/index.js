@@ -161,6 +161,30 @@ const documentReady = () => {
     backSound.play();
     handleBackClick();
   });
+
+  // DRAGGABLE FEATURE
+  const calculatorWrapper = document.querySelector("#calculator-wrapper");
+  let draggableWrapper = calculatorWrapper.querySelector("#draggable-wrapper");
+
+  const onDrag = ({ movementX, movementY }) => {
+    let getStyle = window.getComputedStyle(calculatorWrapper);
+    let left = parseInt(getStyle.left);
+    let top = parseInt(getStyle.top);
+    calculatorWrapper.style.left = `${left + movementX}px`;
+    calculatorWrapper.style.top = `${top + movementY}px`;
+  };
+
+  draggableWrapper.addEventListener("mousedown", () => {
+    draggableWrapper.classList.add("dragged");
+    draggableWrapper.addEventListener("mousemove", onDrag);
+  });
+  document.addEventListener("mouseup", () => {
+    draggableWrapper.classList.remove("dragged");
+    draggableWrapper.removeEventListener("mousemove", onDrag);
+  });
+  draggableWrapper.addEventListener("mouseenter", () => {
+    draggableWrapper.classList.add("dragged");
+  });
 };
 
 document.addEventListener("DOMContentLoaded", documentReady);

@@ -61,6 +61,7 @@
   overflow-y: hidden;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .header {
@@ -77,7 +78,6 @@
   align-items: start;
   height: 100%;
   width: 100%;
-  position: relative;
 }
 .subtitle {
   display: none;
@@ -95,7 +95,7 @@
 
 .calculator__wrapper {
   margin: 0 auto;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
@@ -105,6 +105,10 @@
   box-shadow: var(--calculator-wrapper-box-shadow);
   background: var(--calculator-wrapper-bg);
   border-radius: var(--calculator-wrapper-border-radius);
+}
+.calculator__wrapper .dragged {
+  cursor: move;
+  user-select: none;
 }
 
 .calculator__inner-wrapper {
