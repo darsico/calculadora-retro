@@ -118,8 +118,6 @@
   width: 250px;
   height: 395px;
   background: var(--calculator-inner-wrapper-bg);
-  /* TODO eliminar border o chequear border inner */
-  /* border: 2px solid #2F2F2E; */
   box-shadow: var(--calculator-inner-wrapper-box-shadow);
   border-radius: var(--calculator-inner-wrapper-border-radius);
   padding: 1.8rem 1.2rem;
@@ -259,7 +257,6 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: -1;
 }
 .signature {
   display: flex;
@@ -293,7 +290,9 @@
   color: #2d2d2d;
   text-align: center;
 }
-
+.signature__link {
+  cursor: pointer;
+}
 .signature__icon-list {
   grid-column: span 3;
   display: flex;
