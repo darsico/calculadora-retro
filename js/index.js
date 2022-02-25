@@ -21,24 +21,13 @@ const documentReady = () => {
     }
   };
 
-  // const reverseFormattedNumber = (formattedNumber) => {
-  //   return Number(formattedNumber.replace(/,/g, ""));
-  // };
-  // Variables
+  // VARIABLES IN MEMORY
   let valueStrInMemory = null;
   let operatorInMemory = null;
 
   // OPERATOR BUTTONS
-  const handleOperatorClick = (operator) => {
-    const currentValueStr = getValueAsStr();
+  const getResultOfOperationAsStr = () => {
     const currentValueNumber = getValueAsNum();
-
-    if (!valueStrInMemory) {
-      valueStrInMemory = currentValueStr;
-      operatorInMemory = operator;
-      setStrAsValue("0");
-      return;
-    }
     const valueNumberInMemory = parseFloat(valueStrInMemory);
     let newValueNumber;
     // TODO: Can you refactor this code on a Switch or another alternative?
@@ -51,11 +40,22 @@ const documentReady = () => {
     } else if (operatorInMemory === "multiplication") {
       newValueNumber = valueNumberInMemory * currentValueNumber;
     }
-    valueStrInMemory = newValueNumber.toString();
+    return newValueNumber.toString();
+  };
+
+  const handleOperatorClick = (operator) => {
+    const currentValueStr = getValueAsStr();
+
+    if (!valueStrInMemory) {
+      valueStrInMemory = currentValueStr;
+      operatorInMemory = operator;
+      setStrAsValue("0");
+      return;
+    }
+
+    valueStrInMemory = getResultOfOperationAsStr();
     operatorInMemory = operator;
     setStrAsValue("0");
-    console.log(valueStrInMemory);
-    console.log(operatorInMemory);
   };
 
   const sum = document.getElementById("sum");
@@ -71,17 +71,29 @@ const documentReady = () => {
 
   division.addEventListener("click", () => handleOperatorClick("division"));
 
+  //EQUAL
+  const handleEqualClick = () => {
+    if (valueStrInMemory) {
+      const newValueStr = getResultOfOperationAsStr();
+      if (parseFloat(newValueStr) > Math.floor(newValueStr)) {
+        const newValueFixed = parseFloat(newValueStr).toFixed(3);
+        setStrAsValue(newValueFixed);
+        valueStrInMemory = null;
+        operatorInMemory = null;
+      } else {
+        setStrAsValue(newValueStr);
+        valueStrInMemory = null;
+        operatorInMemory = null;
+      }
+    }
+  };
+
   const equal = document.getElementById("equal");
   equal.addEventListener("click", () => {
-    if (!valueStrInMemory) {
-      valueStrInMemory = null;
-      operatorInMemory = null;
-    }
+    handleEqualClick();
   });
 
   // NUMBERS
-  const numbers = [...document.querySelectorAll(".calculator__body-button-number")];
-
   const handleNumberClick = (numberStr) => {
     const currentValueStr = getValueAsStr();
     if (currentValueStr === "0") {
@@ -90,6 +102,8 @@ const documentReady = () => {
       setStrAsValue(currentValueStr + numberStr);
     }
   };
+
+  const numbers = [...document.querySelectorAll(".calculator__body-button-number")];
 
   numbers.map((element) => {
     element.addEventListener("click", (e) => {
@@ -118,22 +132,18 @@ const documentReady = () => {
   clear.addEventListener("click", handleClearClick);
 
   // BACK
-  const back = document.getElementById("back");
-
-  back.addEventListener("click", () => {
+  const handleBackClick = () => {
     const valueStr = getValueAsStr();
-
-    const valueArr = valueStr.split("");
-
-    valueArr.shift();
-
-    const valueArrBacked = valueArr.join("");
-    if (valueArr.length === 0) {
-      return setStrAsValue("0");
+    const newValueBacked = valueStr.substring(0, valueStr.length - 1);
+    if (newValueBacked === "") {
+      setStrAsValue("0");
+    } else {
+      setStrAsValue(newValueBacked);
     }
-    valueElement.textContent = valueArrBacked;
-  });
-  console.log(valueStrInMemory);
+  };
+
+  const back = document.getElementById("back");
+  back.addEventListener("click", handleBackClick);
 };
 
 document.addEventListener("DOMContentLoaded", documentReady);
