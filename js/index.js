@@ -32,6 +32,7 @@ const documentReady = () => {
 
   // OPERATOR BUTTONS
   const operators = [...document.querySelectorAll(".calculator__body-button-operator")];
+
   operators.map((element) => {
     element.addEventListener("click", (e) => {
       console.log(`clicked:  ${e.target.id}`);
@@ -58,6 +59,7 @@ const documentReady = () => {
 
   //DECIMAL
   const decimal = document.getElementById("decimal");
+
   decimal.addEventListener("click", () => {
     const currentValueStr = getValueAsStr();
     if (!currentValueStr.includes(".")) {
@@ -66,19 +68,25 @@ const documentReady = () => {
   });
 
   // CLEAR
-  const clear = document.getElementById("clear");
-  clear.addEventListener("click", () => {
+  const handleClearClick = () => {
     valueElement.textContent = "0";
-  });
+  };
+
+  const clear = document.getElementById("clear");
+  clear.addEventListener("click", handleClearClick);
 
   // BACK
   const back = document.getElementById("back");
-  back.addEventListener("click", function () {
-    let output = reverseFormattedNumber(getScreenContent().toString());
-    if (output) {
-      output = output.substr(0, output.length - 1);
-      printContent(output);
+
+  back.addEventListener("click", () => {
+    const valueStr = getValueAsStr();
+    const valueArr = valueStr.split("");
+    valueArr.shift();
+    const valueArrBacked = valueArr.join("");
+    if (valueArr.length === 0) {
+      return handleClearClick();
     }
+    valueElement.textContent = valueArrBacked;
   });
 };
 
