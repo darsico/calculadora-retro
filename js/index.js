@@ -44,7 +44,7 @@ const documentReady = () => {
   };
 
   const operatorAudio = () => {
-    const operatorSound = new Audio("../sounds/operator-sound.wav");
+    const operatorSound = new Audio("../sounds/operator-sound.mp3");
     operatorSound.play();
   };
 
@@ -108,7 +108,7 @@ const documentReady = () => {
     }
   };
   const numberAudio = () => {
-    const numberSound = new Audio("../sounds/number-sound.wav");
+    const numberSound = new Audio("../sounds/number-sound.mp3");
     numberSound.play();
   };
 
@@ -140,7 +140,7 @@ const documentReady = () => {
   };
 
   const cAudio = () => {
-    const cSound = new Audio("../sounds/c-sound.wav");
+    const cSound = new Audio("../sounds/c-sound.mp3");
     cSound.play();
   };
 
@@ -163,7 +163,7 @@ const documentReady = () => {
   };
 
   const backAudio = () => {
-    const backSound = new Audio("../sounds/back-sound.wav");
+    const backSound = new Audio("../sounds/back-sound.mp3");
     backSound.play();
   };
 
