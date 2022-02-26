@@ -30,7 +30,7 @@ const documentReady = () => {
     const currentValueNumber = getValueAsNum();
     const valueNumberInMemory = parseFloat(valueStrInMemory);
     let newValueNumber;
-    // TODO: Can you refactor this code on a Switch or another alternative?
+
     if (operatorInMemory === "sum") {
       newValueNumber = valueNumberInMemory + currentValueNumber;
     } else if (operatorInMemory === "subtraction") {
@@ -76,7 +76,6 @@ const documentReady = () => {
 
   //EQUAL
   const handleEqualClick = () => {
-    operatorSound.play();
     if (valueStrInMemory) {
       const newValueStr = getResultOfOperationAsStr();
       if (parseFloat(newValueStr) > Math.floor(newValueStr)) {
@@ -94,6 +93,7 @@ const documentReady = () => {
 
   const equal = document.getElementById("equal");
   equal.addEventListener("click", () => {
+    operatorAudio();
     handleEqualClick();
   });
 
@@ -107,14 +107,16 @@ const documentReady = () => {
       setStrAsValue(currentValueStr + numberStr);
     }
   };
+  const numberAudio = () => {
+    const numberSound = new Audio("../sounds/number-sound.wav");
+    numberSound.play();
+  };
 
-  const numberSound = new Audio();
-  numberSound.src = "../sounds/number-sound.wav";
   const numbers = [...document.querySelectorAll(".calculator__body-button-number")];
 
   numbers.map((element) => {
     element.addEventListener("click", (e) => {
-      numberSound.play();
+      numberAudio();
       handleNumberClick(e.target.id.toString());
     });
   });
@@ -123,7 +125,7 @@ const documentReady = () => {
   const decimal = document.getElementById("decimal");
 
   decimal.addEventListener("click", () => {
-    operatorSound.play();
+    operatorAudio();
     const currentValueStr = getValueAsStr();
     if (!currentValueStr.includes(".")) {
       setStrAsValue(currentValueStr + ".");
@@ -137,13 +139,15 @@ const documentReady = () => {
     operatorInMemory = null;
   };
 
-  const cSound = new Audio();
-  cSound.src = "../sounds/c-sound.wav";
+  const cAudio = () => {
+    const cSound = new Audio("../sounds/c-sound.wav");
+    cSound.play();
+  };
 
   const clear = document.getElementById("clear");
 
   clear.addEventListener("click", () => {
-    cSound.play();
+    cAudio();
     handleClearClick();
   });
 
@@ -157,12 +161,15 @@ const documentReady = () => {
       setStrAsValue(newValueBacked);
     }
   };
-  const backSound = new Audio();
-  backSound.src = "../sounds/back-sound.wav";
+
+  const backAudio = () => {
+    const backSound = new Audio("../sounds/back-sound.wav");
+    backSound.play();
+  };
 
   const back = document.getElementById("back");
   back.addEventListener("click", () => {
-    backSound.play();
+    backAudio();
     handleBackClick();
   });
 
