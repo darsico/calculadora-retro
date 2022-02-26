@@ -105,6 +105,7 @@
   box-shadow: var(--calculator-wrapper-box-shadow);
   background: var(--calculator-wrapper-bg);
   border-radius: var(--calculator-wrapper-border-radius);
+  z-index: 99;
 }
 .calculator__wrapper .dragged {
   cursor: move;

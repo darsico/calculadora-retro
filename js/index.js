@@ -138,6 +138,7 @@ const documentReady = () => {
   cSound.src = "../sounds/c-sound.wav";
 
   const clear = document.getElementById("clear");
+
   clear.addEventListener("click", () => {
     cSound.play();
     handleClearClick();
@@ -153,9 +154,9 @@ const documentReady = () => {
       setStrAsValue(newValueBacked);
     }
   };
-
   const backSound = new Audio();
   backSound.src = "../sounds/back-sound.wav";
+
   const back = document.getElementById("back");
   back.addEventListener("click", () => {
     backSound.play();
