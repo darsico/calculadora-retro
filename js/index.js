@@ -43,8 +43,13 @@ const documentReady = () => {
     return newValueNumber.toString();
   };
 
-  const handleOperatorClick = (operator) => {
+  const operatorAudio = () => {
+    const operatorSound = new Audio("../sounds/operator-sound.wav");
     operatorSound.play();
+  };
+
+  const handleOperatorClick = (operator) => {
+    operatorAudio();
     const currentValueStr = getValueAsStr();
 
     if (!valueStrInMemory) {
@@ -58,8 +63,6 @@ const documentReady = () => {
     operatorInMemory = operator;
     setStrAsValue("0");
   };
-  const operatorSound = new Audio();
-  operatorSound.src = "../sounds/operator-sound.wav";
 
   const sum = document.getElementById("sum");
   const subtraction = document.getElementById("subtraction");
