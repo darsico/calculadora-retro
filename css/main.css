@@ -79,8 +79,16 @@
   height: 100%;
   width: 100%;
 }
-.subtitle {
+.message-drag {
   display: none;
+  font-family: var(--btn-font-family);
+  color: black;
+  font-size: 1.3em;
+  position: absolute;
+  top: 42%;
+  left: calc(100vw - 70vw);
+  line-height: 0.9em;
+  transform: rotate(-40deg);
 }
 
 .calculator {
@@ -319,6 +327,10 @@
   .calculator__wrapper {
     transform: translate(-50%, -50%) scale(0.8);
   }
+  .message-drag {
+    display: block;
+    left: calc(100vw - 70vw);
+  }
 }
 @media (min-width: 1200px) {
   .header {
@@ -329,5 +341,9 @@
   }
   .calculator__wrapper {
     transform: translate(-50%, -50%) scale(1);
+  }
+  .message-drag {
+    left: calc(100vw - 68vw);
+    font-size: 1.6em;
   }
 }
